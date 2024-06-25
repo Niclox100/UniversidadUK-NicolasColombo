@@ -26,7 +26,7 @@
 
 # Pasos para visualizar el cliente web
 
-1. Entrar a la ruta htpp://localhost:28081
+1. Entrar a la ruta http://localhost:28081
 
 2. Colocar el usuario y contraseña
 
