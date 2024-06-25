@@ -1,7 +1,7 @@
-### Prueba tecnica de Nicolas Colombo para UniversidadUK
+# Prueba tecnica de Nicolas Colombo para UniversidadUK
 
 
-# Pasos necesarios para levantar el proyecto
+## Pasos necesarios para levantar el proyecto
 
 1. Instalar Docker
 
@@ -24,7 +24,7 @@
 
 5. Ejecutar el comando "npm run start:dev"
 
-# Pasos para visualizar el cliente web
+## Pasos para visualizar el cliente web
 
 1. Entrar a la ruta http://localhost:28081
 
