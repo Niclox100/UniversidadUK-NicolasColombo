@@ -9,11 +9,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Global()
 @Module({
   imports: [
-/*     MongooseModule.forRoot("mongodb://localhost:27017", {
-      user: "root",
-      pass: "root",
-      dbName: "universidadUK-db",
-    }) */
     MongooseModule.forRootAsync({
       useFactory: async (configService: ConfigType<typeof config>) => {
         const { connection, user, password, host, port, dbName} = configService.mongo

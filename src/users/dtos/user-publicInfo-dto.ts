@@ -10,7 +10,7 @@ import { UserCreationData } from '../users.interface';
 import { ApiProperty } from '@nestjs/swagger';
 
 
-export class UserCreationDTO implements UserCreationData {
+export class UserPublicInfoDTO implements UserCreationData {
 
   @ApiProperty({ required: true, default: 'Nicolás Colombo' })
   @IsString()

@@ -1,8 +1,7 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Db } from 'mongodb';
 import { User } from './users.entity';
 import { UserCreationDTO } from './dtos/user-creation.dto';
 import { UserUpdateDTO } from './dtos/user-update.dto';
@@ -10,15 +9,11 @@ import { UserUpdateDTO } from './dtos/user-update.dto';
 @Injectable()
 export class UsersService {
   constructor(
-    @Inject("MONGO") private database: Db,
     @InjectModel(User.name) private userModel: Model<User>
   ) {}
 
-  getUsers() {
-    return this.userModel.find().exec()
-
-/*     const usersCollection = this.database.collection("users")
-    return usersCollection.find().toArray() */
+  async getUsers() {
+    return await this.userModel.find().exec()
   }
 
   async getUser(id: string) {
@@ -28,11 +23,13 @@ export class UsersService {
     if(!found) {
       throw new NotFoundException(`User ${id} not found`)
     }
+
+    return found
   }
 
-  create(data: UserCreationDTO) {
+  async create(data: UserCreationDTO) {
     const newUser = new this.userModel(data)
-    return newUser.save();
+    return await newUser.save();
   }
 
   async update({id, body}: {
@@ -42,7 +39,7 @@ export class UsersService {
     const found = await this.userModel.findByIdAndUpdate(
       id ,
       { $set: body },
-      { new: true },
+      { new: true, },
       ).exec();
 
     if(!found) {

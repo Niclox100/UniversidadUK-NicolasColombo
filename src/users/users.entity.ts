@@ -13,11 +13,19 @@ export class User extends Document {
   })
   email: string;
 
-  @Prop()
-  address: string;
+  @Prop({
+    required: true
+  })  address: string;
 
-  @Prop({ type: Number})
-  age: number;
+  @Prop({
+    required: true,
+    type: Number
+  })  age: number;
+
+  @Prop({
+    required: true
+  })
+  profession: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
