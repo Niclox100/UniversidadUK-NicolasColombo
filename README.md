@@ -39,3 +39,7 @@
 
 5. Ya se va a poder visualizar las colecciones agregadas, en este caso la de "users"
 
+##OPENAPI
+
+Desde la ruta http://localhost:3000/api se va a poder visualizar de una mejor forma todos los endpoints
+
